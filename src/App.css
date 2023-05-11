@@ -13,15 +13,38 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #474747; 
+  background: #474747;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #383838; 
+  background: #383838;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff0000; 
+  background: #ff0000;
+}
+
+.image-container {
+  position: relative;
+  transition: transform 0.2s;
+}
+.image-container:hover {
+  transform: scale(1.1);
+}
+.image-container:hover .overlay {
+  opacity: 1;
+  cursor: pointer;
+}
+.overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  width: 89%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.5s ease;
+  font-size: 15px;
+  padding: 10px;
+  text-align: center;
 }
