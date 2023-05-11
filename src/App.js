@@ -6,6 +6,7 @@ import MovieList from "./Components/MovieList";
 import MovieListHeading from "./Components/MovieListHeading";
 import SearchBox from "./Components/SearchBox";
 import AddFavourite from "./Components/AddFavourite";
+import RemoveFavourite from "./Components/RemoveFavourite";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -44,14 +45,14 @@ function App() {
           handleFavouriteClick={AddToFavourite}
         />
       </div>
-      <div className="row d-flex align-items-center mt-4 mb-3">
+      <div className="row d-flex align-items-center mt-3 mb-1">
         <MovieListHeading heading="Favourites" />
       </div>
       <div className="row mx-2">
         <MovieList
           movies={favouriteMovie}
-          favouriteComponent={AddFavourite}
-          handleFavouriteClick={AddToFavourite}
+          favouriteComponent={RemoveFavourite}
+          handleRemoveClick={AddFavourite}
         />
       </div>
     </div>
