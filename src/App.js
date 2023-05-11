@@ -26,11 +26,11 @@ function App() {
 
   return (
     <div className="container-fluid movie-app">
-      <div className="row d-flex align-items-center mt-4 mb-4">
-        <MovieListHeading heading="Movies" />
+      <div className="row d-flex align-items-center mt-4 mb-3">
+        <MovieListHeading heading="MoviesXYZ.com" />
         <SearchBox value={searchValue} setSearchValue={setSearchValue} />
       </div>
-      <div className="row">
+      <div className="row mx-2">
         <MovieList movies={movies} />
       </div>
     </div>
