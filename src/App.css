@@ -2,6 +2,7 @@ body {
   background: #141414;
   color: #ffffff;
 }
+
 .movie-app > .row {
   overflow-x: auto;
   flex-wrap: nowrap;
@@ -27,6 +28,8 @@ body {
 }
 
 .image-container {
+  width: auto;
+  height: 250px;
   position: relative;
   transition: transform 0.2s;
 }
@@ -40,7 +43,7 @@ body {
 .overlay {
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
-  width: 89%;
+  width: 100%;
   bottom: 0;
   opacity: 0;
   transition: 0.5s ease;

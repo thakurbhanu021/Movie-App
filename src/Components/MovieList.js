@@ -5,9 +5,9 @@ const MovieList = (props) => {
   return (
     <>
       {props.movies.map((movie, index) => (
-        <div className="image-container col d-flex justify-content-start m-2 mb-3">
-          <img src={movie.Poster} alt="movie" width='190px' height='250px'/>
-          <div className="overlay d-flex justify-content-center align-items-center">
+        <div className="image-container d-flex justify-content-start m-3 p-0">
+          <img src={movie.Poster} alt="movie" />
+          <div onClick={()=>props.handleFavouriteClick(movie)} className="overlay d-flex justify-content-center align-items-center">
             <FavouriteComponent/>
           </div>
         </div>
