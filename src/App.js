@@ -10,7 +10,7 @@ import RemoveFavourite from "./Components/RemoveFavourite";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [favouriteMovie, setFavouriteMovie] = useState([]);
+  const [favouriteMovies, setFavouriteMovie] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
   const getMovieRequest = async (value) => {
@@ -27,9 +27,28 @@ function App() {
     getMovieRequest(searchValue);
   }, [searchValue]);
 
+  useEffect(()=>{
+    const favouriteMovies = JSON.parse(localStorage.getItem('react-movie-app-favourite'))
+
+    setFavouriteMovie(favouriteMovies);
+  },[])
+
+  const saveToLocalStorage = (item) => {
+    localStorage.setItem("react-movie-app-favourite", JSON.stringify(item));
+  };
+
   const AddToFavourite = (movie) => {
-    const FavouriteMovie = [...favouriteMovie, movie];
-    setFavouriteMovie(FavouriteMovie);
+    const FavouriteMovies = [...favouriteMovies, movie];
+    setFavouriteMovie(FavouriteMovies);
+    saveToLocalStorage(FavouriteMovies);
+  };
+
+  const RemoveFromFavourite = (movie) => {
+    const newFavouriteMovies = favouriteMovies.filter(
+      (favouriteMovie) => favouriteMovie.imdbID !== movie.imdbID
+    );
+    setFavouriteMovie(newFavouriteMovies);
+    saveToLocalStorage(newFavouriteMovies);
   };
 
   return (
@@ -50,9 +69,9 @@ function App() {
       </div>
       <div className="row mx-2">
         <MovieList
-          movies={favouriteMovie}
+          movies={favouriteMovies}
           favouriteComponent={RemoveFavourite}
-          handleRemoveClick={AddFavourite}
+          handleFavouriteClick={RemoveFromFavourite}
         />
       </div>
     </div>
